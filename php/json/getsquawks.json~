@@ -1,0 +1,19 @@
+[
+	{
+		"squawk_id": "ABCD1234",
+		"occure_date": "2019-04-25 03:10:00",
+		"description": "Test description added",
+		"reported_by": "Test User",
+		"crew_comments": "Lights broken",
+		"status": "Open",
+		"attachment":"/var/www/html/airbill/images/img_4.jpg"
+	}, {
+		"squawk_id": "NBAK3398",
+		"occure_date": "2019-05-04 22:45:00",
+		"description": "Description added",
+		"reported_by": "Test User",
+		"crew_comments": null,
+		"status": "Closed"
+		"attachment":"/var/www/html/airbill/images/img_4.jpg"
+	}
+	]

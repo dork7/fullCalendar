@@ -1,0 +1,13 @@
+ {
+ 	"tail_num": "ABC-124",
+ 	"type": "Cessna-172",
+ 	"model_year": "1995",
+ 	"engine": null,
+ 	"location": null,
+ 	"billing_rate": null,
+ 	"billing_method": null,
+ 	"rate_type": null,
+ 	"rating": null,
+ 	"equipment": null,
+	 "aircraft_active": 1
+ }

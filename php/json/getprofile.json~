@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"user_id": 10,
+		"first_name": "Name",
+		"last_name": "Test",
+		"profile_pic": null,
+		"dob": "13\/01\/1975",
+		"country": null,
+		"city": null,
+		"street": null,
+		"state": null,
+		"postal_code": null,
+		"cell_phone": " 15551234567",
+		"home_phone": null,
+		"work_phone": "13333216444",
+		"emergency_contact": "Alex",
+		"emergency_num": "14447654321",
+		"comments": null,
+		"created_at": "2019-04-16 17:58:17",
+		"updated_at": "2019-04-20 18:32:2",
+		"role": "admin"
+	}
+  ]
+
+ 
