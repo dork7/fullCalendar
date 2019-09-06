@@ -80,49 +80,6 @@ $(document).ready(function () {
 
 
 });
-$('#profile_Image').on({
-    'click': function(){
-         //$('#profile_Image').attr('src','second.jpg');
-    }
-});
-// getting airport status data 
-$(document).ready(function () {
-	var profile_pic;
-
-
-	$.ajax({
-		type: 'GET',
-		url: "php/getairportstatus.php",
-		dataType: 'json',
-		encode: true,
-		success: function (data) {
-
-			if (data.status == "ok") {
-				//				$("#air_stat_disp").val("Airport Status : "+ data.msg);
-				$("#air_stat_disp").text("Airport Status : " + data.msg.airport_status);
-			} else if (data.status == "err") {
-				$.notify(
-					data.msg, {
-						position: "bottom center",
-						showDuration: 1,
-						className: 'warn'
-					}
-				);
-			}
-
-
-
-			//			console.log(obj.msg[0][]);
-		},
-		error: function (data) {
-			//alert("error in getting user progile info");
-		}
-
-	});
-
-
-
-});
 
 
 
@@ -178,16 +135,7 @@ $(document).ready(function () {
 					'<div class="fc-event-inner pt-1 ><span class="fc-event-title"> <span style="float:left;margin-right:2px;margin-left:2px;">' + startTimeEventInfo + '</span>  <div class="ttt" > ' + event.title + ' </div> <span style="float:right;margin-right:2px;">' +
 					endTimeEventInfo + '</span><br/></div> </div>';
 
-				if (event.res_type == "regular") {
-					element.css('background-color', 'rgb(0, 140, 186)');
-				} else if (event.res_type == "maintenance") {
-					element.css('background-color', 'rgb(234, 47, 16)');
-				} else if (event.res_type == "backup") {
-					element.css('background-color', '#e99002');
-				}
-				if (event.userID == userLoggedIn) {
-					element.css('background-color', '#3c9a5f');
-				}
+				 element.css('background-color', event.color);
 
 
 				element.find(".fc-content").replaceWith(new_description);
@@ -574,6 +522,7 @@ $(document).ready(function () {
 								end_hobbs: data.event[i].end_hobbs,
 								_id: data.event[i]._id,
 								stick: true,
+								color = data.event.color,
 							});
 						}
 						//	console.log(events[0].start);
@@ -855,210 +804,7 @@ $(document).ready(function () {
 			}
 		});
 		//// instructor only reserve
-		$('#save-event2').on('click', function () {
-
-			var title = "name of user"; //$('#title').text();
-			var startDay = $('#startAt2').val();
-			var endDay = $('#endAt2').val();
-
-			var startAt2Time1 = $('#startAt2Time1 option:selected').val(); //text();
-			var startAt2Time2 = $('#startAt2Time2 option:selected').val();
-
-			var endAt2time1 = $('#endAt2time1 option:selected').val();
-			var endAt2time2 = $('#endAt2time2 option:selected').val();
-
-
-			startDay += " " + startAt2Time1 + ":" + startAt2Time2;
-
-			endDay += " " + endAt2time1 + ":" + endAt2time2;
-
-
-
-
-			var instructor_id = $('#instructor_id2 option:selected').val();
-
-			var comments = $('#comments2').val();
-			//////////////
-			var calendar = $('#calendar-type').val();
-			var description = $('#add-event-desc').val();
-			var type = "regular";
-			if (title) {
-				var eventData = {
-					_id: eventId,
-					title: title,
-					start: startDay,
-					end: endDay,
-					resourceIds1: 0,
-					resourceIds2: instructor_id,
-					instructor_id: instructor_id,
-					res_type: type, // set on the basis of role
-					comments: comments,
-					from_dt: startDay,
-					to_dt: endDay
-
-				};
-				console.log(eventData);
-				$.ajax({
-						type: 'POST',
-						url: 'php/addreservation.php',
-						data: {
-							jsondata: eventData
-						}, //change this to 
-						dataType: 'json',
-						encode: true
-					})
-
-					.done(function (data) {
-
-						console.log(data);
-
-						if (data.status == "err") {
-							$.notify(
-								data.msg, {
-									position: "bottom center",
-									showDuration: 1,
-									className: 'warn'
-								}
-							);
-
-							// show error
-
-						} else if (data.status == "ok") {
-
-							$.notify(
-								data.msg, {
-									position: "bottom center",
-									showDuration: 1,
-									className: 'success'
-								}
-							);
-
-							$("#calendar").fullCalendar('refetchEvents');
-
-							//							$("#calendar").fullCalendar('renderEvent', eventData, true);
-							$(calSelected).fullCalendar('refetchEvents');
-
-
-							$('#newEventModal').find('input, textarea').val('');
-							$('#newEventModal').modal('hide');
-						}
-					})
-
-
-					.fail(function (data) {
-
-						console.log("ajax failed");
-
-					});
-
-			} else {
-				//alert("Title can't be blank. Please try again.")
-			}
-		});
-		///////////// maintenance
-        $('#maintenance-event').on('click', function () {
-
-            var title = "maintainance user";
-            var startDay = $('#startAt2').val();
-            var endDay = $('#endAt2').val();
-
-            var startAt2Time1 = $('#startAt2Time1 option:selected').val();
-            var startAt2Time2 = $('#startAt2Time2 option:selected').val();
-
-            var endAt2time1 = $('#endAt2time1 option:selected').val();
-            var endAt2time2 = $('#endAt2time2 option:selected').val(); // need fixing
-
-
-            startDay += " " + startAt2Time1 + ":" + startAt2Time2;
-
-            endDay += " " + endAt2time1 + ":" + endAt2time2;
-
-
-            var aircraft_id = $('#main_aircraft_id option:selected').val();
-            //			var comments = $('#comments2').val();
-            //////////////
-            var calendar = $('#calendar-type').val();
-            var description = $('#add-event-desc').val();
-            var type = "maintenance";
-            if (title) {
-                var eventData = {
-                    _id: eventId,
-                    title: title,
-                    start: startDay,
-                    end: endDay,
-                    aircraft_id: aircraft_id,
-                    resourceIds1: aircraft_id,
-                    resourceIds2: null,
-                    //					instructor_id: instructor_id,
-                    res_type: "maintenance", // set on the basis of role
-                    from_dt: startDay,
-                    to_dt: endDay,
-
-                };
-                console.log(eventData);
-                $.ajax({
-                        type: 'POST',
-                        url: 'php/addreservation.php',
-                        data: {
-                            jsondata: eventData
-                        }, //change this to
-                        dataType: 'json',
-                        encode: true
-                    })
-
-                    .done(function (data) {
-
-                        console.log(data);
-
-                        if (data.status == "err") {
-                            $.notify(
-                                data.msg, {
-                                    position: "bottom center",
-                                    showDuration: 1,
-                                    className: 'warn'
-                                }
-                            );
-
-                            // show error
-
-                        } else if (data.status == "ok") {
-
-                            $.notify(
-                                data.msg, {
-                                    position: "bottom center",
-                                    showDuration: 1,
-                                    className: 'success'
-                                }
-                            );
-
-                            $("#calendar").fullCalendar('refetchEvents');
-                            $(calSelected).fullCalendar('refetchEvents');
-
-                            //							$("#calendar").fullCalendar('renderEvent', eventData, true);
-                            $('#maintenence-modal').find('input, textarea').val('');
-                            $('#maintenence-modal').modal('hide');
-
-
-                        }
-                    })
-
-
-                    .fail(function (data) {
-
-                        console.log("ajax failed");
-
-                    });
-
-            } else {
-                //                //alert("Title can't be blank. Please try again.")
-            }
-        });
-    }
-
-	//EDIT EVENT CALENDAR
-
-
-});
+		
 // modal handling
 $(document).ready(function () {
 
