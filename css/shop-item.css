@@ -1,0 +1,162 @@
+/*!
+ * Start Bootstrap - Shop Item (https://startbootstrap.com/template-overviews/shop-item)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-item/blob/master/LICENSE)
+ */
+body {
+/*  padding-top: 56px;*/
+}
+.legendSpan {
+    display: inline-block;
+    min-width: 25px;
+    padding: 3px 7px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #999;
+    border-radius: 10px;
+}
+ 
+.profile-img {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+
+}
+
+.profile-text {
+	font-size: 12px;
+	padding: 2px;
+	margin: 2px;
+}
+
+.form-group input {
+	font-size: 12px;
+/*	height: 60%;*/
+	padding: 1px;
+}
+
+
+
+.form-group label {
+	font-size: 10px;
+	/*    height: 50%;*/
+	padding-top: 1px;
+	margin-top: 2px;
+}
+
+.form-group select {
+	font-size: 10px;
+/* 	height: 80%;*/
+/*
+	padding: 1px;
+	margin: 1px;
+*/
+}
+
+
+/*///// IMAGE */
+.profile-img-upload {
+	border-radius: 50%;
+	/*
+  height: 250px;
+  width: 250px;
+*/
+	max-height: 200px;
+	max-width: 200px;
+	/*padding-left: 20px;*/
+}
+
+.panel-heading {
+	/*    height: 500px;*/
+
+	font-size: 14px;
+	/*    height: 50%;*/
+	/*
+    height: 16px;
+    margin: 2px;
+*/
+}
+
+.form-control button {
+	height: 20px;
+/*	width: 80%;*/
+}
+ 
+
+.custom-file-upload {
+	border: 1px solid #ccc;
+	display: inline-block;
+	padding: 6px 12px;
+	cursor: pointer;
+}
+
+.date-class {
+	width: 150px;
+	/*    height:25px;*/
+	/*    padding:1px;*/
+	/*    border:1px solid #ccc;*/
+	/*    padding: 0 2.5em 0 0.5em;*/
+	border-radius: 5px;
+}
+
+.btn-group button {
+/*	height: 80%;*/
+/*	line-height: 20px;*/
+
+}
+
+
+/*///////////////// reservation modal //////////////*/
+.modal {
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+		height: 100%;
+	}
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+
+
+.modal-body select {
+	font-size: 12px;
+ 
+	margin: 3px;
+}
+
+.modal-body {
+	margin: 20px;
+	padding: 20px;
+
+
+}
+.modal-body label {
+/*	font-size: 12px;*/
+	font-weight:bold;
+	/*    height: 50%;*/
+	/*    padding: 11px;*/
+	/*	width: 200px;*/
+	margin: 3px;
+}
+.modal-body input {
+/*	font-size: 12px;*/
+ 
+	/*    height: 50%;*/
+	/*    padding: 11px;*/
+	/*	width: 200px;*/
+	margin: 3px;
+}

@@ -24,6 +24,7 @@
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css'>
 
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/shop-item.css">
 <!--	<link rel="stylesheet" href="schedular/schedular.css">-->
 	<!--	///////////////////////////////-->
 	<!--	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCit4RJVPT9UiLQCJJPYEBkNTJCslqO4ps&libraries=places"></script>-->
@@ -210,17 +211,7 @@
  						<span aria-hidden="true">&times;</span>
  					</button>
  				</div>
-
-<div id="subTabs">
- 				<div class="d-flex align-items-center justify-content-center bg-light" id="">
-
-
- 					<button type="button" class="btn btn-default  text-center mt-1  bg-light " style="border:none;" id="flight-tab"><span class="glyphicon glyphicon-plane"></span><br>Flight</button>
- 					<button type="button" class="btn btn-default  text-center ml-5 mt-1  bg-light " style="border:none;" id="inst-tab"><span class="glyphicon glyphicon-headphones"></span><br>Instructor Only</button>
-
-<!-- 					<button type="button" class="btn btn-default  text-center ml-5 mt-1  bg-light " style="border:none;" id="maintenencemodal"><span class="glyphicon glyphicon-plus"></span><br>Maintenance</button>-->
- 				</div>
- 			</div>
+ 
 
  				<div class="modal-body">
 
@@ -228,8 +219,8 @@
  						<form id="reserve-flight">
  							<div class="container ">
  								<div class="row m-1">
- 									<label class="col-md-2 "><b>Title</b></label>
- 									<label class="col-md-2" id="title"> </label>
+ 									<label class="col-md-2 "><b>Tittle</b></label>
+  									<input class="form-control col-md-2" type="text" id="title">
 
  								</div>
 
@@ -254,14 +245,7 @@
  									<input class="form-control col-md-2" type="text" id="endAt1">
  									 
  								</div>
- 	 
- 
- 								<div class="row m-1">
- 									<label for="message-text" class="col-md-2" id="lbl_destination"><b>Destination:</b></label>
- 									<input class="form-control col-md-2" type="text" id="destination" placeholder="e.g KLAX">
-
- 								</div>
-
+  
  								<div class="row m-1">
  									<label for="message-text" class="col-md-2 "><b>Comments:</b></label>
  									<textarea name="message" id="comments1" cols="10" rows="2" class="form-control col-md-5"></textarea>
@@ -316,15 +300,7 @@
  									<label class="col-md-2"><b>Tittle</b></label>
  									<label class="col-md-2" id="d_user"></label>
  								</div>
- 								<div class="row m-1">
- 									<label class="col-md-2" id="lbl_craft"><b>Aircraft:</b></label>
- 									<label class="col-md-2" id="d_aircraft"></label>
- 								</div>
- 								<div class="row m-1">
- 									<label class="col-md-2" id="lbl_inst"><b>Instructor:</b></label>
- 									<label class="col-md-2" id="d_instructor"></label>
- 								</div>
- 								<div class="row m-1">
+ 	 								<div class="row m-1">
  									<label class="col-md-2"><b>From:</b></label>
  									<label class="col-md-4" id="d_from_dt"></label>
  								</div>
@@ -351,26 +327,6 @@
 
  							</div>
 
- 							<div class="container" id="hobbs_cont">
-
-
- 								<div class="row m-1">
- 									<label class="col-md-2 mt-3"><b>Hobb Start:</b></label>
- 									<input class="form-control col-md-2" type="text" id="hobb_start">
-									<button type="button" class="btn btn-primary mt-1 ml-2" id="trip_start" style="height:80%">Start Trip</button> 
- 								</div>
-
-
- 								<div class="row m-1">
- 									<label class="col-md-2 mt-3"><b>Hobb End:</b></label>
- 									<input class="form-control col-md-2" type="text" id="hobb_end">
-								  <button type="button" class="btn btn-primary mt-1 ml-2" id="trip_end" style="height:80%">End Trip</button>
- 								</div>
- 				 
-
-
- 							</div>
-
 
  							<div class="d-flex align-items-center justify-content-end  mt-3 mr-5 mb-2">
  								<div class="row " id="btn_append">
@@ -381,10 +337,6 @@
 
  						</form>
  					</div>
- 					<!--				/////////////////////////// instructor form //////////////////////////-->
-
-
-
  				</div>
  			</div>
  		</div>
